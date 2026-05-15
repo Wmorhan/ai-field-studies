@@ -1,4 +1,4 @@
-# Configuring CLAUDE.md: Setting AI Behavior Before You Code
+# Configuring AI Agents: Setting Behavior Before You Code
 
 ## Why This Matters
 
@@ -9,7 +9,9 @@ Before writing a single line of code with an AI assistant, you should configure 
 - **Assumption blindness** - Silently picking one interpretation when requirements are unclear
 - **Vague execution** - Starting work without clear success criteria
 
-The `CLAUDE.md` file is where you teach Claude Code (and other AI tools that respect it) how to work with you.
+**These patterns waste tokens, which costs you money.** Every unnecessary iteration, every over-engineered solution, every misunderstood requirement burns through your API budget or subscription limits. Proper configuration pays for itself immediately.
+
+This lesson focuses on `CLAUDE.md` (used by Claude Code, Cursor, and other tools), but the principles apply to any AI coding assistant's configuration system - whether it's `.cursorrules`, `.aiderules`, custom system prompts, or tool-specific settings.
 
 ## Where to Put It
 
@@ -18,7 +20,14 @@ Claude Code reads `CLAUDE.md` files from two locations:
 1. **`~/.claude/CLAUDE.md`** - Global rules for all projects
 2. **`<project>/.claude/CLAUDE.md`** - Project-specific rules (overrides global)
 
-Start with global rules that reflect your general coding philosophy, then add project-specific rules when needed.
+**Don't be lazy here.** A root configuration is a starting point, not a solution. Each project has unique constraints:
+- A legacy monolith needs different refactoring rules than a greenfield microservice
+- A TypeScript API has different testing patterns than a Python data pipeline
+- A public library requires different documentation standards than an internal tool
+
+**Laziness costs money.** Relying solely on global rules means the AI doesn't know your project's specific conventions, tech stack quirks, or team preferences. It will guess, iterate, and burn tokens on work that doesn't fit. Five minutes configuring a project-specific `CLAUDE.md` saves hours of back-and-forth corrections.
+
+Start with global rules that reflect your general coding philosophy, then **always** add project-specific rules that capture what makes this codebase unique.
 
 ## What to Include
 
