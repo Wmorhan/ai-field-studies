@@ -13,7 +13,7 @@ This lesson gives the practical fix for both.
 
 ## Tool portability: CLAUDE.md vs AGENTS.md
 
-`CLAUDE.md` is Claude Code specific. No other AI assistant reads it.
+`CLAUDE.md` is Claude Code's native format — support varies across other tools.
 
 `AGENTS.md` is the portable alternative — a growing standard read by multiple AI assistants. If you work with more than one tool, or want the option to migrate later, `AGENTS.md` is the better investment.
 
