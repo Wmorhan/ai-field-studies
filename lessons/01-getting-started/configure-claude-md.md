@@ -1,5 +1,7 @@
 # Configuring AI Agents: Setting Behavior Before You Code
 
+> **Before this lesson:** If you haven't read [What AI Knows (and Doesn't)](what-ai-knows.md), start there — it explains why this configuration matters.
+
 ## Why This Matters
 
 Before writing a single line of code with an AI assistant, you should configure how it behaves. Without guidance, AI tools often fall into patterns that seem helpful but create problems:
