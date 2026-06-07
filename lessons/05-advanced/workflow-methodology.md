@@ -31,3 +31,25 @@ The lifecycle moves from brainstorming through product brief, architecture, impl
 A future lesson covers the phases in depth. For now, the key point: B-MAD works because it forces the structured thinking that makes AI outputs good. The methodology and the insight from the previous section are the same thing — write it down properly, and the AI can actually help.
 
 Other structured AI methodologies exist, and the space is evolving fast. The principle holds regardless of which framework you use: phase-based work with defined deliverables is what separates purposeful AI output from generic AI output.
+
+## Linear: where the work lives
+
+Methodology defines how you think through work. Linear is where that work lives.
+
+Linear is a project management tool built around epics and tasks. In a B-MAD workflow, epics map to phases — a product brief epic, an architecture epic, an implementation epic. Tasks within each epic are the concrete units of work that become inputs to AI sessions.
+
+This matters because of the insight above: the more structured your task, the better the AI performs. A task in Linear with a clear title, description, acceptance criteria, and scope boundary is a specification. When you hand that to AI, you're handing it the context it needs — not a verbal description reconstructed from memory.
+
+The combination: B-MAD defines the structure of your thinking, Linear holds the artifacts. Together they close the gap between "I have an idea" and "AI has everything it needs to help."
+
+Linear isn't the only tool that works here. Jira, GitHub Issues, Notion, or a well-structured markdown file can serve the same purpose. What matters is that work is documented with enough structure that you could hand it to someone with no prior context and they'd know exactly what to do. If it meets that bar, it meets the bar for AI.
+
+## What's Next
+
+A future lesson in this series goes deeper on B-MAD's phases — how to move from brief to architecture to implementation with AI at each step.
+
+## Further Reading
+
+- [B-MAD Method documentation](https://docs.bmad-method.org/) — full reference for the framework
+- [B-MAD on GitHub](https://github.com/bmad-code-org/bmad-method) — open source, free to use
+- [Linear](https://linear.app) — project management built for modern development teams
