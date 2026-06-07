@@ -6,6 +6,19 @@ Lessons learned and experiences from coding with AI tools, primarily focused on 
 
 This repository documents practical insights, patterns, and real-world experiences from developing software with AI assistance. Content is aimed primarily at developers new to AI-assisted coding, with some advanced topics for experienced users.
 
+## Lessons
+
+### Getting Started
+- [Before everything starts](lessons/Before%20everything%20starts.md) — Roles, speed, and validation in an AI-assisted world
+- [What AI Knows (and Doesn't)](lessons/01-getting-started/what-ai-knows.md) — Training cutoffs, live data, and the conventions gap
+- [Configuring AI Agents: Setting Behavior Before You Code](lessons/01-getting-started/configure-claude-md.md) — CLAUDE.md setup and why it matters
+
+### Advanced
+- [Scaling Your Configuration](lessons/05-advanced/configuration-strategies.md) — CLAUDE.md vs AGENTS.md, monorepo hierarchy
+- [Workflow Methodology: Structure, B-MAD, and Linear](lessons/05-advanced/workflow-methodology.md) — Structure as input quality, B-MAD framework, Linear as task layer
+
+---
+
 ## Structure
 
 ### `/lessons/`
