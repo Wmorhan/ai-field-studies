@@ -27,10 +27,14 @@ Brief lifecycle overview: brainstorming → product brief → architecture → i
 
 Why it fits AI-assisted work: it forces the structured thinking that makes AI outputs good. The deliverables at each phase (briefs, specs, architecture docs) are exactly the context AI needs to perform well.
 
+Brief acknowledgment that other structured AI methodologies exist (e.g. other agile-AI frameworks, custom team processes). B-MAD is the author's preferred choice — the principle of structured, phase-based work applies regardless of which framework you use.
+
 ### Section 4 — Linear: the task layer
 Linear as the single source of truth for what's being built. Epics map to B-MAD phases; tasks become the concrete inputs to AI sessions. When work lives in a structured tool with proper epics, acceptance criteria, and scope boundaries, you can hand AI exactly what it needs — not a verbal description, but a real specification.
 
 The connection: B-MAD defines how you think through the work, Linear holds what you're building. Together they close the gap between "I have an idea" and "AI has the context it needs."
+
+Brief acknowledgment that other project management tools serve the same purpose (Jira, GitHub Issues, Notion, etc.). What matters is that the work is structured and documented — not which tool holds it.
 
 ### Section 5 — What's Next / Further Reading
 - Forward pointer to future B-MAD deep-dive lesson
