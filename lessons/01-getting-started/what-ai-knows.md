@@ -21,3 +21,17 @@ MCP (Model Context Protocol) tools can fetch live documentation and feed it dire
 **Practical example:** ask an AI (without live data) how to configure a popular framework that changed its config format in a recent major release. It will show you the old format with full confidence. Add Context7, ask the same question — it fetches the current docs and answers correctly.
 
 This is not magic. It's giving the AI better inputs. The model's reasoning is fine; the data it had was stale.
+
+## What the AI never knew: you
+
+The training cutoff explains what the AI stopped learning. There's a second gap that has nothing to do with time: the AI has never known anything about you.
+
+Not your preferred programming language. Not your team's naming conventions. Not your architectural patterns. Not how you structure a module, comment a function, or organize a test suite.
+
+These things were never in the training data, because they're yours.
+
+The result: generic code. Functional, often well-structured — but written in the AI's style, not yours. If you've watched a YouTube tutorial where someone pastes a prompt and gets instant working code, you've seen this. The code works. Under the hood, you'd never recognize it as yours. Different naming, different patterns, different instincts.
+
+This isn't a flaw. The AI is a capable junior who just walked through the door. It defaults to what it was trained on — broad, general, and nothing to do with your codebase.
+
+Capable junior. Blank slate. Needs onboarding.
