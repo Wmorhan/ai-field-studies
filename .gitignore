@@ -17,3 +17,6 @@ Thumbs.db
 *secret*
 *credential*
 *.env
+
+# AI workflow artifacts (local only)
+docs/superpowers/
