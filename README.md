@@ -8,6 +8,8 @@ This repository documents practical insights, patterns, and real-world experienc
 
 ## Lessons
 
+> **New here?** Start with [Before everything starts](lessons/Before%20everything%20starts.md), then follow the order below.
+
 ### Getting Started
 - [Before everything starts](lessons/Before%20everything%20starts.md) — Roles, speed, and validation in an AI-assisted world
 - [What AI Knows (and Doesn't)](lessons/01-getting-started/what-ai-knows.md) — Training cutoffs, live data, and the conventions gap
@@ -28,24 +30,17 @@ This repository documents practical insights, patterns, and real-world experienc
 Core lessons organized by topic. Mix of narrative writeups and structured guides:
 - **01-getting-started/** - First steps with AI coding tools
 - **02-context/** - Documentation, context, and memory for AI agents
-- **03-debugging-ai/** - When AI gets stuck or confused
-- **04-code-review/** - Using AI for code review workflows
 - **05-advanced/** - Advanced techniques and workflows
+- *(03-debugging-ai, 04-code-review — planned)*
 
 ### `/case-studies/`
 Real-world projects and problems solved with AI assistance. Each includes context, approach, results, and lessons learned.
 
 ### `/patterns/`
-- **effective/** - Proven patterns that work well
-- **anti-patterns/** - Common mistakes to avoid
+Proven patterns and common pitfalls — coming soon.
 
 ### `/tools/`
-- **claude-code/** - Claude Code specific guides and configs
-- **other-tools/** - Coverage of other AI coding assistants
-- **comparisons/** - Tool comparisons and when to use what
-
-### `/examples/`
-Code snippets and examples referenced in lessons (sanitized/generic).
+Coverage of AI coding tools, guides, and comparisons — coming soon.
 
 ### `/resources/`
 Links, references, and further reading.
