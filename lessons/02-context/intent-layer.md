@@ -122,6 +122,16 @@ This is a genuine inversion of normal documentation instincts. Write as if your 
 
 **Content is king.** Adding information is more important than formatting it. A wall of plain text that covers the why and the how thoroughly will serve your agent better than a beautifully structured document with gaps. Don't let the pursuit of clean formatting slow down or replace the act of writing. Get the content down first — structure it later if at all.
 
+## Your Job, Not the AI's
+
+The intent layer is the one thing you cannot delegate.
+
+An AI agent can write code, review pull requests, generate tests, and refactor entire modules. But it cannot define its own purpose. It cannot decide what problem is worth solving, what constraints matter, or what success looks like. Those are human judgements — and without them written down, the agent is operating on assumptions.
+
+This is the architect's core responsibility in AI-assisted development. You bring the why. The agent brings the execution. If the why is missing, you haven't freed yourself from work — you've just hidden the work inside the agent's guesses, where it's invisible until something goes wrong.
+
+Writing the intent layer is not optional overhead. It is the job.
+
 ## Making It Stick
 
 Writing the documentation is step one. Ensuring the agent reads it is step two.
@@ -156,7 +166,7 @@ This makes reading the intent layer a default behavior, not something you rememb
 
 ## What's Next
 
-With intent documentation in place, the agent has something real to navigate by. The next lesson covers prompt patterns — how to communicate tasks in ways that produce precise, predictable results.
+With intent documentation in place, the agent has something real to navigate by. The next lesson covers how to communicate individual tasks effectively — turning vague requests into precise, verifiable work.
 
 ## Further Reading
 
