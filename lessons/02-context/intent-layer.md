@@ -108,6 +108,20 @@ docs/
 
 This doesn't need to be elaborate. Two files — one for why, one for how — is enough to give an AI agent a real anchor. Start there.
 
+## Writing for an AI Reader
+
+Documentation for AI agents is different from documentation for humans.
+
+When you write for a human reader, you compress. You assume shared context, skip obvious things, and trust that a colleague will read between the lines. With AI you cannot do this — the agent has no shared context, makes no inferences, and will fill any gap with a guess.
+
+Write explicitly. State conclusions directly, not just the reasoning trail that leads to them. Avoid phrases like "as discussed" or "per the original design" — the agent has no memory of those conversations. If something is important, say it outright.
+
+**There is no "too much information" here.** An AI agent reads thousands of words in seconds with no cognitive fatigue. The instinct to trim documentation to avoid overwhelming a reader does not apply. Err heavily on the side of more: more context, more reasoning, more explicit statements of what might seem obvious. A well-documented why and how cannot be too long — it can only be incomplete.
+
+This is a genuine inversion of normal documentation instincts. Write as if your reader is fast, tireless, and has no prior knowledge of your project. That reader will use everything you give it.
+
+**Content is king.** Adding information is more important than formatting it. A wall of plain text that covers the why and the how thoroughly will serve your agent better than a beautifully structured document with gaps. Don't let the pursuit of clean formatting slow down or replace the act of writing. Get the content down first — structure it later if at all.
+
 ## Making It Stick
 
 Writing the documentation is step one. Ensuring the agent reads it is step two.
