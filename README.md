@@ -13,6 +13,9 @@ This repository documents practical insights, patterns, and real-world experienc
 - [What AI Knows (and Doesn't)](lessons/01-getting-started/what-ai-knows.md) — Training cutoffs, live data, and the conventions gap
 - [Configuring AI Agents: Setting Behavior Before You Code](lessons/01-getting-started/configure-claude-md.md) — CLAUDE.md setup and why it matters
 
+### Context
+- [The Intent Layer](lessons/02-context/intent-layer.md) — Why and how documentation that keeps AI on track
+
 ### Advanced
 - [Scaling Your Configuration](lessons/05-advanced/configuration-strategies.md) — CLAUDE.md vs AGENTS.md, monorepo hierarchy
 - [Workflow Methodology: Structure, B-MAD, and Linear](lessons/05-advanced/workflow-methodology.md) — Structure as input quality, B-MAD framework, Linear as task layer
@@ -24,7 +27,7 @@ This repository documents practical insights, patterns, and real-world experienc
 ### `/lessons/`
 Core lessons organized by topic. Mix of narrative writeups and structured guides:
 - **01-getting-started/** - First steps with AI coding tools
-- **02-prompt-patterns/** - Effective ways to communicate with AI
+- **02-context/** - Documentation, context, and memory for AI agents
 - **03-debugging-ai/** - When AI gets stuck or confused
 - **04-code-review/** - Using AI for code review workflows
 - **05-advanced/** - Advanced techniques and workflows
