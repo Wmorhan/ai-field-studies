@@ -20,6 +20,7 @@ This repository documents practical insights, patterns, and real-world experienc
 
 ### Code Review
 - [Code Review in the Age of AI: Don't Get Comfortable](lessons/04-code-review/01-introduction.md) — Skill atrophy, the astrology problem, and why the grumpy architect attitude matters more than ever
+- [Practical Code Review: What to Look For](lessons/04-code-review/02-practical-review.md) — The two reads, where AI consistently falls short, and keeping the skill sharp
 
 ### Security
 - [Guardrails and Content Controls](lessons/03-security/01-guardrails.md) — The first line of defense: what guardrails protect against and what they don't
