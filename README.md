@@ -18,6 +18,9 @@ This repository documents practical insights, patterns, and real-world experienc
 ### Context
 - [The Intent Layer](lessons/02-context/intent-layer.md) — Why and how documentation that keeps AI on track
 
+### Code Review
+- [Code Review in the Age of AI: Don't Get Comfortable](lessons/04-code-review/01-introduction.md) — Skill atrophy, the astrology problem, and why the grumpy architect attitude matters more than ever
+
 ### Security
 - [Guardrails and Content Controls](lessons/03-security/01-guardrails.md) — The first line of defense: what guardrails protect against and what they don't
 - [Prompt Injection](lessons/03-security/02-prompt-injection.md) — Direct vs indirect injection, real-world cases, why it's architecturally hard to fix
@@ -39,7 +42,7 @@ Core lessons organized by topic. Mix of narrative writeups and structured guides
 - **02-context/** - Documentation, context, and memory for AI agents
 - **05-advanced/** - Advanced techniques and workflows
 - **03-security/** - Threat landscape for AI-assisted development
-- *(04-code-review — planned)*
+- **04-code-review/** - Maintaining critical evaluation skills in an AI-assisted world
 
 ### `/case-studies/`
 Real-world projects and problems solved with AI assistance. Each includes context, approach, results, and lessons learned.
