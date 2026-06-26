@@ -18,6 +18,13 @@ This repository documents practical insights, patterns, and real-world experienc
 ### Context
 - [The Intent Layer](lessons/02-context/intent-layer.md) — Why and how documentation that keeps AI on track
 
+### Security
+- [Guardrails and Content Controls](lessons/03-security/01-guardrails.md) — The first line of defense: what guardrails protect against and what they don't
+- [Prompt Injection](lessons/03-security/02-prompt-injection.md) — Direct vs indirect injection, real-world cases, why it's architecturally hard to fix
+- [The Tool Attack Surface](lessons/03-security/03-tool-attack-surface.md) — How MCP tools transform injection from words into actions
+- [Shared Configurations](lessons/03-security/04-shared-configurations.md) — Community configs, inherited trust chains, and your data leaving the session
+- [Supply Chain Attacks](lessons/03-security/05-supply-chain.md) — Compromising the packages, models, and infrastructure AI agents depend on
+
 ### Advanced
 - [Scaling Your Configuration](lessons/05-advanced/configuration-strategies.md) — CLAUDE.md vs AGENTS.md, monorepo hierarchy
 - [Workflow Methodology: Structure, B-MAD, and Linear](lessons/05-advanced/workflow-methodology.md) — Structure as input quality, B-MAD framework, Linear as task layer
@@ -31,7 +38,8 @@ Core lessons organized by topic. Mix of narrative writeups and structured guides
 - **01-getting-started/** - First steps with AI coding tools
 - **02-context/** - Documentation, context, and memory for AI agents
 - **05-advanced/** - Advanced techniques and workflows
-- *(03-debugging-ai, 04-code-review — planned)*
+- **03-security/** - Threat landscape for AI-assisted development
+- *(04-code-review — planned)*
 
 ### `/case-studies/`
 Real-world projects and problems solved with AI assistance. Each includes context, approach, results, and lessons learned.
