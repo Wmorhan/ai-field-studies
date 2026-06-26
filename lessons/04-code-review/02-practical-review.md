@@ -74,9 +74,19 @@ Code that works correctly but doesn't fit the codebase creates long-term mainten
 
 ### The problem that was actually solved
 
-This one matters more than it sounds. AI solves the problem as stated. If the problem was stated imprecisely — or if the AI interpreted it slightly differently than intended — the result can be code that does exactly what it was asked to do and not quite what was needed.
+This one matters more than it sounds, and it took us a while to fully appreciate why.
 
-Go back to the original requirement. Does this code satisfy it? Not "does this code look like it satisfies it" — does it actually satisfy it, in the specific cases that matter in production?
+AI approaches your code like a puzzle to be solved as quickly as possible. Given a task, it moves toward a working solution by the shortest available path. That's not a flaw in the model — it's how it operates. The problem is what happens when there are gaps.
+
+Gaps in requirements. Gaps in context. Gaps between what was said and what was meant. When the AI encounters a gap, it doesn't stop and ask. It fills the gap with whatever gets to a solution fastest. Not the most architecturally sound solution. Not the solution that fits your long-term patterns. The shortest path to something that works.
+
+This is why the intent layer — your architectural documentation, your business constraints, your explicit decisions about what this system is and isn't — matters so much in a review. If the AI wasn't given that documentation, or wasn't pointed to it, it had no anchor. It improvised. And the improvisation will be locally coherent and architecturally naive: code that solves the stated problem without regard for how that solution fits the larger system it's entering.
+
+What we learned to check in review: not just "does this work?" but "did it take a shortcut?" Shortcuts in AI code tend to look like working solutions. They compile, they pass tests, they do the thing they were asked to do. What they skip is the constraint that wasn't in the prompt — the pattern the rest of the codebase follows, the architectural boundary that should have been respected, the non-functional requirement that wasn't stated explicitly because it seemed obvious.
+
+Go back to the original requirement and the architectural documentation. Does this code satisfy both? Not "does it look like it satisfies them" — does it actually satisfy them, including the constraints that weren't spelled out in the task but are written down somewhere the AI wasn't told to read?
+
+If the answer is unclear, the gap is in the documentation. Fix the documentation before approving the code.
 
 ## What Not to Let AI Review
 
