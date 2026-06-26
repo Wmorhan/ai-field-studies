@@ -1,28 +1,28 @@
 # Scaling Your Configuration
 
-> **Prerequisite:** This lesson assumes you've completed [Configuring AI Agents: Setting Behavior Before You Code](../01-getting-started/configure-claude-md.md).
+> **Prerequisite:** This lesson assumes you've read [Configuring AI Agents: Setting Behavior Before You Code](../01-getting-started/configure-claude-md.md).
 
-CLAUDE.md works. But as your setup grows — more tools, more apps, a bigger team — the config that worked for one project needs to scale.
+`CLAUDE.md` works well at first. But as setups grow — more tools, more apps, bigger teams — the config that worked for one project starts showing its limits.
 
-Two problems surface:
+Two problems we ran into:
 
-- You're locked to one tool. CLAUDE.md only works with Claude Code.
-- A single file can't cover a monorepo where different apps have different conventions.
+- Being locked to one tool. `CLAUDE.md` is Claude Code's native format; support varies across other tools.
+- A single file not being able to cover a monorepo where different apps have genuinely different conventions.
 
-This lesson gives the practical fix for both.
+Here's what we found that helped.
 
 ## Tool portability: CLAUDE.md vs AGENTS.md
 
 `CLAUDE.md` is Claude Code's native format — support varies across other tools.
 
-`AGENTS.md` is the portable alternative — a growing standard read by multiple AI assistants. If you work with more than one tool, or want the option to migrate later, `AGENTS.md` is the better investment.
+`AGENTS.md` is the portable alternative — a growing standard read by multiple AI assistants. If you work across more than one tool, or want the option to migrate later, `AGENTS.md` is the better long-term investment.
 
-The practical rule:
+What worked for us:
 
 - **Single tool, single team** → `CLAUDE.md` is fine
 - **Multiple tools, or planning to migrate** → use `AGENTS.md`
 
-You can have both. Claude Code reads both files — `AGENTS.md` serves everything else. If you're starting fresh and unsure, default to `AGENTS.md`.
+Both can coexist. Claude Code reads both files — `AGENTS.md` serves everything else. If starting fresh and unsure, we defaulted to `AGENTS.md`.
 
 ## Hierarchy: configuring a monorepo
 
@@ -38,17 +38,17 @@ my-monorepo/
 │       └── AGENTS.md  ← frontend-specific: React patterns, CSS conventions
 ```
 
-Think of it as a cone: broad rules at the root, specific rules at the tips. Each nested file only needs to cover what's different — the root rules still apply unless overridden.
+Think of it as a cone: broad rules at the root, specific rules at the tips. Each nested file only needs to cover what's different from the level above — the root rules still apply unless overridden.
 
 ## Putting it together
 
-A practical starting point for a multi-app monorepo:
+A practical structure for a multi-app monorepo:
 
 ```
 my-monorepo/
 ├── AGENTS.md          ← portable baseline, read by all tools
 ├── .claude/
-│   └── CLAUDE.md      ← Claude-specific behavior (optional)
+│   └── CLAUDE.md      ← Claude-specific behaviour (optional)
 ├── packages/
 │   ├── api/
 │   │   └── AGENTS.md  ← overrides and additions for the API package
@@ -56,7 +56,7 @@ my-monorepo/
 │       └── AGENTS.md  ← overrides and additions for the web package
 ```
 
-Root `AGENTS.md` carries your general conventions. Package-level files only need to cover what's different. Claude-specific behavior (like tool permissions or memory settings) stays in `.claude/CLAUDE.md` where only Claude Code will find it.
+The root `AGENTS.md` carries general conventions. Package-level files only cover what's different. Claude-specific behaviour (tool permissions, memory settings) stays in `.claude/CLAUDE.md` where only Claude Code will find it.
 
 ## What's Next
 

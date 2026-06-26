@@ -2,19 +2,19 @@
 
 > **Before this lesson:** Read [Before Everything Starts](../Before%20everything%20starts.md) — it covers the shift in roles that makes this documentation necessary.
 
-## Why This Matters
+## What We Kept Running Into
 
-When an AI coding agent doesn't know why you're building something, it doesn't stop and ask. It guesses — and then proceeds confidently in the wrong direction.
+When an AI coding agent doesn't know why something is being built, it doesn't stop and ask. It guesses — and then proceeds confidently in the wrong direction.
 
-This is the core danger of underdocumented AI-assisted development. The agent sees your codebase as a puzzle to solve on its own terms. It optimizes for code-level coherence: clean patterns, consistent naming, logical structure. But "logical" according to what goal?
+This is the pattern that caught us out most often in early AI-assisted work. The agent sees the codebase as a puzzle to solve on its own terms. It optimises for code-level coherence: clean patterns, consistent naming, logical structure. But "logical" according to what goal?
 
-Three hours later you have beautifully written code that solves the wrong problem. No warning signs. No moment where the agent flagged uncertainty. Just confident execution of a wrong assumption.
+Three hours later there's beautifully written code solving the wrong problem. No warning signs. No moment where the agent flagged uncertainty. Just confident execution of a wrong assumption.
 
-The fix isn't a better prompt. It's documentation that exists *before* the session starts — documentation that gives the agent something to check its decisions against beyond the code itself.
+The fix wasn't a better prompt. It was documentation that existed *before* the session started — something that gave the agent a reference point beyond the code itself.
 
 ## The Two Layers
 
-Every project needs coverage across two dimensions:
+What we found: every project needs coverage across two dimensions.
 
 **The Why layer — business documentation**
 What problem are we solving? For whom? What does success look like? What constraints are non-negotiable? What have we explicitly decided *not* to do?
@@ -22,32 +22,28 @@ What problem are we solving? For whom? What does success look like? What constra
 **The How layer — architecture documentation**
 What technical choices were made? What patterns do we follow? What did we decide against, and why? How does the system fit together?
 
-The naming doesn't matter. Call them `business.md` and `architecture.md`, or `goals.md` and `design.md`, or anything else. What matters is *coverage* — that both dimensions exist and are written down.
-
-The gray zone between them is real and fine. "We chose a monorepo because the teams need to stay aligned" sits in both. Don't spend time debating taxonomy. Spend it writing content.
+The naming doesn't matter. Call them `business.md` and `architecture.md`, or `goals.md` and `design.md`. What matters is *coverage* — that both dimensions exist and are written down.
 
 **One without the other is still a guess:**
 
-- *How without why:* The agent knows you're using microservices but not why. It suggests consolidating them to reduce complexity — technically reasonable, strategically wrong.
-- *Why without how:* The agent knows you want fast iteration but not your architecture constraints. It suggests shortcuts that violate the patterns you've deliberately built.
+- *How without why:* The agent knows the technical setup but not the reason behind it. It suggests "improvements" that are technically reasonable and strategically wrong.
+- *Why without how:* The agent knows what we're trying to achieve but not the constraints we're working within. It takes shortcuts that violate the patterns we've deliberately built.
 
-Both layers together create an anchor strong enough to hold.
+Both layers together give the agent something solid to navigate by.
 
 ## Essence Precedes Existence
 
 Write the why before the how.
 
-The architecture is a consequence of the business intent — not the other way around. You don't pick a database before you know what you're storing or why. You don't choose a service boundary before you understand the business domain it represents.
+The architecture follows from the business intent — not the other way around. We noticed that when teams skipped the why document and went straight to architecture, the AI would start filling in business assumptions on its own. Those assumptions were internally consistent and confidently executed. The consequences showed up later.
 
-In traditional development, skipping this step is a bad habit. In AI-assisted development, it's a structural failure. The agent will fill in missing intent with assumptions. Those assumptions will be internally consistent and confidently executed. You won't know they were wrong until the consequences show up.
-
-The why document is the foundation. Build architecture on top of it.
+The why document is the foundation. Everything else builds on top of it.
 
 ## What to Write
 
 ### Business documentation
 
-This is the *why*. Keep it direct and opinionated — vague goals produce vague code.
+This is the *why*. Keep it direct — vague goals produce vague output.
 
 ```
 # Project: [Name]
@@ -106,35 +102,35 @@ docs/
     002-auth.md
 ```
 
-This doesn't need to be elaborate. Two files — one for why, one for how — is enough to give an AI agent a real anchor. Start there.
+Two files is enough to make a real difference. Start there.
 
 ## Writing for an AI Reader
 
-Documentation for AI agents is different from documentation for humans.
+Something we had to unlearn: the compression instincts that work for human documentation don't work here.
 
-When you write for a human reader, you compress. You assume shared context, skip obvious things, and trust that a colleague will read between the lines. With AI you cannot do this — the agent has no shared context, makes no inferences, and will fill any gap with a guess.
+When writing for a human reader, we compress. We assume shared context, skip obvious things, trust that a colleague will read between the lines. With AI we can't do this — the agent has no shared context, makes no inferences, and will fill any gap with a guess.
 
 Write explicitly. State conclusions directly, not just the reasoning trail that leads to them. Avoid phrases like "as discussed" or "per the original design" — the agent has no memory of those conversations. If something is important, say it outright.
 
-**There is no "too much information" here.** An AI agent reads thousands of words in seconds with no cognitive fatigue. The instinct to trim documentation to avoid overwhelming a reader does not apply. Err heavily on the side of more: more context, more reasoning, more explicit statements of what might seem obvious. A well-documented why and how cannot be too long — it can only be incomplete.
+**There is no "too much information" here.** An AI agent reads thousands of words in seconds without fatigue. The instinct to keep documentation short doesn't apply. Err heavily on the side of more. A well-documented why and how cannot be too long — it can only be incomplete.
 
-This is a genuine inversion of normal documentation instincts. Write as if your reader is fast, tireless, and has no prior knowledge of your project. That reader will use everything you give it.
+This was a genuine inversion for us. Write as if the reader is fast, tireless, and has no prior knowledge of the project. That reader will use everything given to it.
 
-**Content is king.** Adding information is more important than formatting it. A wall of plain text that covers the why and the how thoroughly will serve your agent better than a beautifully structured document with gaps. Don't let the pursuit of clean formatting slow down or replace the act of writing. Get the content down first — structure it later if at all.
+**Content over formatting.** A dense block of plain text that covers the why and the how thoroughly serves the agent better than a beautifully structured document with gaps. Get the content down first — structure it later if at all.
 
-## Your Job, Not the AI's
+## The One Thing We Couldn't Delegate
 
-The intent layer is the one thing you cannot delegate.
+The intent layer is the one thing an AI cannot write for itself.
 
-An AI agent can write code, review pull requests, generate tests, and refactor entire modules. But it cannot define its own purpose. It cannot decide what problem is worth solving, what constraints matter, or what success looks like. Those are human judgements — and without them written down, the agent is operating on assumptions.
+An AI agent can write code, review pull requests, generate tests, refactor modules. But it cannot define its own purpose. It cannot decide what problem is worth solving, what constraints matter, or what success looks like. Those are human judgements — and without them written down, the agent operates on assumptions.
 
-This is the architect's core responsibility in AI-assisted development. You bring the why. The agent brings the execution. If the why is missing, you haven't freed yourself from work — you've just hidden the work inside the agent's guesses, where it's invisible until something goes wrong.
+This is what we've come to see as the core responsibility in AI-assisted work. We bring the why. The agent brings the execution. If the why is missing, we haven't freed ourselves from work — we've just hidden it inside the agent's guesses, where it's invisible until something goes wrong.
 
 Writing the intent layer is not optional overhead. It is the job.
 
 ## Making It Stick
 
-Writing the documentation is step one. Ensuring the agent reads it is step two.
+Writing the documentation is step one. Making sure the agent reads it is step two.
 
 **Reference it in your CLAUDE.md:**
 
@@ -148,15 +144,13 @@ Do not make architectural decisions that contradict these documents.
 If a task seems to conflict with them, stop and ask.
 ```
 
-This makes reading the intent layer a default behavior, not something you remember to ask for.
+This makes reading the intent layer a default behaviour, not something you remember to ask for.
 
-**Treat it as a session anchor, not a one-time setup.** At the start of a new session, on a complex task, or when something feels off — point the agent back to the docs explicitly. The context window is finite. A long session will drift without re-grounding.
+**Treat it as a session anchor, not a one-time setup.** At the start of a new session, on a complex task, or when something feels off — point the agent back to the docs explicitly. Context windows are finite. Long sessions drift without re-grounding.
 
-**Memory plugins help, but don't replace this.** Tools that persist state across sessions (memory plugins, vector stores, project memory) capture *what happened* — they don't capture *why you made the choices you made*. Deep documentation is still necessary. Memory plugins give the agent access to history; your docs give it access to intent.
+**Update the docs as the project evolves.** An outdated why document is worse than none — the agent will follow it confidently in the wrong direction. When goals change, update the doc before the next session.
 
-**Update the docs as the project evolves.** An outdated why document is worse than none — the agent will follow it confidently in the wrong direction. When a business goal changes, update the doc before the next session.
-
-## Key Takeaways
+## What We Took Away
 
 1. **AI agents fill intent gaps with guesses** — and they do it silently and confidently
 2. **Two layers are required** — why (business) and how (architecture); one without the other is incomplete

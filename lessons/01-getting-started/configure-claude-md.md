@@ -2,42 +2,44 @@
 
 > **Before this lesson:** If you haven't read [What AI Knows (and Doesn't)](what-ai-knows.md), start there — it explains why this configuration matters.
 
-## Why This Matters
+## What We Learned
 
-Before writing a single line of code with an AI assistant, you should configure how it behaves. Without guidance, AI tools often fall into patterns that seem helpful but create problems:
+We made the mistake of jumping straight into using AI without setting any guardrails on how it behaves. What we got back was technically functional but full of patterns we didn't want — over-engineered solutions, unnecessary abstractions, changes to code we hadn't touched in the task. Every correction meant another iteration, which costs time and money.
 
-- **Over-engineering** - Adding abstractions, configuration layers, and "flexibility" you didn't ask for
-- **Scope creep** - "Improving" adjacent code while fixing a bug
-- **Assumption blindness** - Silently picking one interpretation when requirements are unclear
-- **Vague execution** - Starting work without clear success criteria
+What helped: configuring the AI's behavior before the session starts. Without explicit guidance, AI tools drift toward patterns that seem helpful but create problems:
 
-**These patterns waste tokens, which costs you money.** Every unnecessary iteration, every over-engineered solution, every misunderstood requirement burns through your API budget or subscription limits. Proper configuration pays for itself immediately.
+- **Over-engineering** — adding abstractions and "flexibility" nobody asked for
+- **Scope creep** — "improving" adjacent code while fixing something else
+- **Assumption blindness** — silently picking one interpretation when requirements are unclear
+- **Vague execution** — starting work without clear success criteria
 
-This lesson focuses on `CLAUDE.md` (used by Claude Code, Cursor, and other tools), but the principles apply to any AI coding assistant's configuration system - whether it's `.cursorrules`, `.aiderules`, custom system prompts, or tool-specific settings.
+Every unnecessary iteration burns time and, if you're on usage-based pricing, money. Getting configuration right early pays off quickly.
+
+This lesson focuses on `CLAUDE.md` (used by Claude Code, Cursor, and other tools), but the principles apply to any AI assistant's configuration system — whether it's `.cursorrules`, `.aiderules`, custom system prompts, or tool-specific settings.
 
 ## Where to Put It
 
 Claude Code reads `CLAUDE.md` files from two locations:
 
-1. **`~/.claude/CLAUDE.md`** - Global rules for all projects
-2. **`<project>/.claude/CLAUDE.md`** - Project-specific rules (overrides global)
+1. **`~/.claude/CLAUDE.md`** — Global rules that apply across all projects
+2. **`<project>/.claude/CLAUDE.md`** — Project-specific rules (takes precedence over global)
 
-**Don't be lazy here.** A root configuration is a starting point, not a solution. Each project has unique constraints:
-- A legacy monolith needs different refactoring rules than a greenfield microservice
+We found that relying only on global rules wasn't enough. Each project has its own constraints and patterns that global rules can't cover:
+- A legacy system needs different guidance than a greenfield project
 - A TypeScript API has different testing patterns than a Python data pipeline
-- A public library requires different documentation standards than an internal tool
+- A public-facing product has different documentation standards than an internal tool
 
-**Laziness costs money.** Relying solely on global rules means the AI doesn't know your project's specific conventions, tech stack quirks, or team preferences. It will guess, iterate, and burn tokens on work that doesn't fit. Five minutes configuring a project-specific `CLAUDE.md` saves hours of back-and-forth corrections.
+The gap between "what the global config says" and "what this specific project actually needs" is where the AI has to guess. Five minutes writing a project-specific `CLAUDE.md` closed that gap and reduced back-and-forth significantly.
 
-Start with global rules that reflect your general coding philosophy, then **always** add project-specific rules that capture what makes this codebase unique.
+Start with global rules that reflect your general approach, then add project-specific rules that cover what makes each codebase unique.
 
 ## What to Include
 
-Your `CLAUDE.md` should address the behaviors that matter most to you. Here are five core principles with real examples:
+Here are five principles we settled on, with examples of how we wrote them:
 
 ### 1. Think Before Coding
 
-AI tools are biased toward action. Teach them to stop and clarify first.
+AI tools are biased toward action. We found that asking explicitly for clarification before execution made a real difference.
 
 ```markdown
 ## Think Before Coding
@@ -50,11 +52,9 @@ Don't assume. Don't hide confusion. Surface tradeoffs.
 - Stop when confused — Name what's unclear and ask for clarification
 ```
 
-**Why this works:** Explicit instruction to pause prevents wasted work on the wrong problem.
-
 ### 2. Simplicity First
 
-AI models love adding "just in case" code. Constrain this.
+The AI's instinct is to add "just in case" code. We had to tell it not to.
 
 ```markdown
 ## Simplicity First
@@ -68,11 +68,9 @@ Minimum code that solves the problem. Nothing speculative.
 - If 200 lines could be 50, rewrite it
 ```
 
-**Why this works:** Clear constraints against over-engineering keep code maintainable.
-
 ### 3. Surgical Changes
 
-Prevent "helpful" refactoring that wasn't requested.
+One thing that frustrated us early on: asking for a bug fix and getting back a refactored module. The AI was trying to help. We needed to be explicit.
 
 ```markdown
 ## Surgical Changes
@@ -91,11 +89,9 @@ When your changes create orphans:
 The test: Every changed line should trace directly to the user's request.
 ```
 
-**Why this works:** Reduces diff noise and avoids accidental breakage of working code.
-
 ### 4. Goal-Driven Execution
 
-Transform vague requests into verifiable goals.
+Vague tasks produce vague output. We started framing everything as a verifiable goal.
 
 ```markdown
 ## Goal-Driven Execution
@@ -113,16 +109,11 @@ For multi-step tasks, state a brief plan:
 1. [Step] → verify: [check]
 2. [Step] → verify: [check]
 3. [Step] → verify: [check]
-
-Strong success criteria let the LLM loop independently.
-Weak criteria ("make it work") require constant clarification.
 ```
-
-**Why this works:** Clear success criteria enable autonomous execution and reduce back-and-forth.
 
 ### 5. Demand Clarity
 
-Force the AI to interrogate vague requests.
+We learned to ask the AI to push back on us when we were being vague — rather than finding out three iterations later.
 
 ```markdown
 ## Demand Clarity
@@ -140,11 +131,9 @@ Red flags: "fix", "improve", "handle", "add" without specifics
 The test: Could another developer implement this without asking questions?
 ```
 
-**Why this works:** Prevents wasted iterations on misunderstood requirements.
+## A Complete Example
 
-## Real Example: Complete CLAUDE.md
-
-Here's a complete global configuration that implements all five principles:
+Here's a global configuration that pulls these five principles together:
 
 ```markdown
 # Global rules and settings for Claude
@@ -188,21 +177,17 @@ The test: Every changed line should trace directly to the user's request.
 
 Define success criteria. Loop until verified.
 
-
 Transform imperative tasks into verifiable goals:
-Instead of... 		Transform to...
-"Add validation" 	"Write tests for invalid inputs, then make them pass"
-"Fix the bug" 		"Write a test that reproduces it, then make it pass"
-"Refactor X" 		"Ensure tests pass before and after"
+Instead of...          Transform to...
+"Add validation"       "Write tests for invalid inputs, then make them pass"
+"Fix the bug"          "Write a test that reproduces it, then make it pass"
+"Refactor X"           "Ensure tests pass before and after"
 
 For multi-step tasks, state a brief plan:
 
 1. [Step] → verify: [check]
 2. [Step] → verify: [check]
 3. [Step] → verify: [check]
-
-Strong success criteria let the LLM loop independently. 
-Weak criteria ("make it work") require constant clarification.
 
 5. Demand Clarity
 
@@ -219,17 +204,17 @@ Red flags: "fix", "improve", "handle", "add" without specifics
 The test: Could another developer implement this without asking questions?
 ```
 
-## Key Takeaways
+## What We Took Away
 
-1. **Configure before you code** - Don't rely on default AI behavior
-2. **Be explicit** - AI tools follow instructions literally; vague guidance produces vague results
-3. **Start global, refine per-project** - Common patterns go in `~/.claude/CLAUDE.md`, project quirks go in project-specific files
-4. **Test and iterate** - If Claude keeps doing something you don't want, add a rule against it
-5. **Keep it readable** - You'll reference this file when debugging AI behavior
+1. **Configure before you code** — the AI's default behaviour is not calibrated to your project
+2. **Be explicit** — vague guidance produces vague results; the AI follows instructions literally
+3. **Start global, refine per project** — general philosophy at the global level, specific conventions per project
+4. **Iterate on the config** — when the AI keeps doing something you don't want, add a rule; the config evolves
+5. **Keep it readable** — you'll reference it when debugging unexpected AI behaviour
 
 ## What's Next
 
-With your `CLAUDE.md` configured, you're ready to start coding with clear behavioral expectations. The next lesson covers effective prompt patterns for common tasks.
+With a `CLAUDE.md` in place, the AI has something real to work from. The next lesson covers how to give it the context it needs around intent and architecture.
 
 ## Further Reading
 
